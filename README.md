@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+Specs
+1. You are expected to use React + Redux to build the forms.
+2. User should be allowed to go to next step only if all fields on current step are valid.
+3. There is a blue progress meter on top that shows current progress of steps.
+4. When moving from step to step, the page should not reload. This is a Single Page Application.
+5. Style the app exactly as given in the screens above. Though, you are encouraged to suggest
+improvements to the form in a note along with your test.
+6. You are free to use bleeding edge CSS features like Flexbox to make your work easy.
+7. You need to implement following validations:
+7.1. Email should be required.
+7.2. Email should be a valid email address. Use regex validation.
+7.3. Password is required.
+7.4. Password should be minimum 6 characters long.
+7.5. Password confirmation should match the password.
+7.6. All fields in “Date of birth” are required.
+7.7. All fields in “Date of birth” should be valid respectively.
+7.7.1. DD should be a number and 31 ≥ DD ≥ 1.
+7.7.2. MM should be a number and 12 ≥ MM ≥ 1.
+7.7.3. YYYY should be a number.
+7.7.4. Dates like 30/2/1991 are invalid.
+7.8. The user must be 18 year old or more.
+7.9. One gender option must be selected from the 3 given.
+7.10. “Where did you hear about us?” is optional.
+8. When a field is invalid, it should show a useful message in the label itself, red in colour.
+9. The “Go to Dashboard” button at the last step should print all the details entered as a JSON in
+the Browser console, something like:
+9.1. { “user_data”: { “email”: …, “password”: …, “date_of_birth”: 1485761262,
+“gender”: “female”, “how_hear_about_us”: null } }
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Extras
+• Write unit tests for React components and reducers.
+• Add animations between step transitions and to the progress bar.
+• Implement Server side rendering of the form.
+• Use redux-form to implement the forms and validation.

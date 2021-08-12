@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import SignUp from './components/SignUp';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './store';
 
-function App() {
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <div className='App'>
+          <SignUp />
+        </div>
+      </ThemeProvider>
+    </Provider>
+  )
 }
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#2e87ff',
+      main: '#207bf5',
+      dark: '#1560c2',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#f44336'
+    },
+    background: {
+      default: '#fff'
+    },
+  },
+  typography: {
+    button: {
+      textTransform: 'none'
+    }
+  },
+})
 
 export default App;

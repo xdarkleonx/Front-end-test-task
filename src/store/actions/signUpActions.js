@@ -3,7 +3,12 @@ export const setStep = (stepNumber) => ({
   payload: stepNumber,
 })
 
-export const setData = (data) => ({
-  type: 'SET_DATA',
+export const setFirstFormData = (data) => ({
+  type: 'SET_FIRST_FORM_DATA',
+  payload: data,
+})
+
+export const setSecondFormData = (data) => ({
+  type: 'SET_SECOND_FORM_DATA',
   payload: data,
 })

@@ -1,3 +1,8 @@
+Fifth step in specs. 
+I added red border to not validated fields in second form with text errors like in first form. 
+In Field "WHERE DID YOU HEAR ABOUT US" I removed arrow, because it text field, not select field. 
+When click on button "Back" in second form, the data from first form stays.
+
 Specs
 1. You are expected to use React + Redux to build the forms.
 2. User should be allowed to go to next step only if all fields on current step are valid.
@@ -29,6 +34,9 @@ the Browser console, something like:
 
 Extras
 • Write unit tests for React components and reducers.
+
 • Add animations between step transitions and to the progress bar.
+
 • Implement Server side rendering of the form.
+
 • Use redux-form to implement the forms and validation.

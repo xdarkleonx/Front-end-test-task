@@ -1,5 +1,8 @@
 const initState = {
   step: 1,
+  secondFormData: {
+    howHearAboutUs: null,
+  }
 }
 
 const signUpReducer = (state = initState, action) => {
@@ -10,12 +13,18 @@ const signUpReducer = (state = initState, action) => {
         ...state,
         step: action.payload
       };
-    case 'SET_DATA':
+    case 'SET_FIRST_FORM_DATA':
       console.log(action);
       return {
         ...state,
-        data: {
-          ...state.data,
+        firstFormData: action.payload
+      };
+    case 'SET_SECOND_FORM_DATA':
+      console.log(action);
+      return {
+        ...state,
+        secondFormData: {
+          ...state.secondFormData,
           ...action.payload
         }
       };

@@ -22,7 +22,7 @@ export const minLengthSix = (value) => {
 }
 
 export const matchPassword = (password) => (value) => {
-  if (password.localeCompare(value) !== 0) {
+  if (password?.localeCompare(value) !== 0) {
     return 'NOT MATCH';
   }
   return undefined;

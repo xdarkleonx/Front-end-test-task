@@ -11,7 +11,7 @@ const FormTextField = (props) => {
     ? meta.error
     : '';
 
-  // console.log(field);
+  console.log(props);
   return (
     <TextField
       type={props.type}

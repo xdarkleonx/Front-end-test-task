@@ -6,10 +6,13 @@ import FormTextField from '../components/FormTextField';
 import { connect } from 'react-redux'
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { requiredAndNotEmpty, emailValidate, minLengthSix, matchPassword } from '../utils/validators';
+import { useSelector } from 'react-redux';
 
 let FirstStepForm = (props) => {
   const classes = useStyles();
 
+  const formData = useSelector((state) => state.signUp.firstFormData);
+  console.log(formData)
   const checkPassword = useMemo(() => {
     return matchPassword(props.password)
   }, [props.password])
@@ -40,6 +43,7 @@ let FirstStepForm = (props) => {
             type='password'
             component={FormTextField}
             validate={[requiredAndNotEmpty, checkPassword]}
+            accept={false}
           />
         </Box>
         <Box className={classes.footer}>
@@ -61,7 +65,11 @@ FirstStepForm = reduxForm({ form: 'firstStep' })(FirstStepForm);
 const selector = formValueSelector('firstStep');
 
 FirstStepForm = connect(state => ({
-  password: selector(state, 'password')
+  password: selector(state, 'password'),
+  initialValues: {
+    ...state.signUp.firstFormData,
+    confirmPassword: state.signUp.firstFormData?.password
+  }
 }))(FirstStepForm)
 
 export default FirstStepForm;

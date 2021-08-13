@@ -5,13 +5,12 @@ import FirstStepForm from '../forms/FirstStepForm';
 import SecondStepForm from '../forms/SecondStepForm';
 import ThirdStepForm from '../forms/ThirdStepForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { setData, setStep } from '../store/actions/signUpActions';
+import { setStep, setFirstFormData, setSecondFormData } from '../store/actions/signUpActions';
 
 const SignUp = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.signUp.data);
   const step = useSelector((state) => state.signUp.step);
 
   const onSubmitForm = (data, stepNumber) => {
@@ -19,7 +18,7 @@ const SignUp = () => {
 
     if (stepNumber === 2) {
       const { confirmPassword, ...newData } = data;
-      dispatch(setData(newData));
+      dispatch(setFirstFormData(newData));
     }
     else if (stepNumber === 3) {
       let { day, month, year, ...newData } = data;
@@ -27,8 +26,7 @@ const SignUp = () => {
       const monthBirth = parseInt(data.month - 1);
       const yearBirth = parseInt(data.year);
       newData.dateOfBirth = new Date(yearBirth, monthBirth, dayBirth).getTime();
-      newData.howHearAboutUs = data.howHearAboutUs || null;
-      dispatch(setData(newData));
+      dispatch(setSecondFormData(newData));
     }
   }
 
@@ -57,7 +55,7 @@ const SignUp = () => {
             <SecondStepForm onSubmit={(data) => onSubmitForm(data, 3)} />
           }
           {step === 3 &&
-            <ThirdStepForm onClick={() => console.log(JSON.stringify({ userData: data }))} />
+            <ThirdStepForm onClick={(userData) => console.log(userData)} />
           }
         </Box>
       </Grid>

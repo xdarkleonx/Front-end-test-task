@@ -8,7 +8,7 @@ import { BsArrowRightShort } from 'react-icons/bs';
 import FormToggleButtonGroup from '../components/FormToggleButtonGroup';
 import FormOutlineTextField from '../components/FormOutlineTextField';
 import { useDispatch } from 'react-redux';
-import { setStep, setData } from '../store/actions/signUpActions';
+import { setStep } from '../store/actions/signUpActions';
 import { requiredAndNotEmpty, numberType, dayOfBirth, monthOfBirth, yearOfBirth } from '../utils/validators';
 
 let SecondStepForm = (props) => {
@@ -23,7 +23,7 @@ let SecondStepForm = (props) => {
 
   const onBackClick = () => {
     dispatch(setStep(1));
-    dispatch(setData());
+    // dispatch(setFirstFormData());
   }
 
   return (

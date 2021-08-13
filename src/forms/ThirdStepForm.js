@@ -3,9 +3,24 @@ import { Box, Button, Fade } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { HiCheckCircle } from 'react-icons/hi';
+import { useSelector } from 'react-redux';
 
 const ThirdStepForm = (props) => {
   const classes = useStyles();
+
+  const firstFormData = useSelector((state) => state.signUp.firstFormData);
+  const secondFormData = useSelector((state) => state.signUp.secondFormData);
+
+  const getUserData = () => {
+    const userData = JSON.stringify({
+      userData: {
+        ...firstFormData,
+        ...secondFormData
+      }
+    })
+
+    props.onClick(userData);
+  }
 
   return (
     <Fade direction='left' in={true}>
@@ -17,7 +32,7 @@ const ThirdStepForm = (props) => {
           color='primary'
           className={classes.dashboardButton}
           endIcon={<BsArrowRightShort size={22} />}
-          onClick={props.onClick}
+          onClick={getUserData}
         >
           Go to Dashboard
         </Button>
